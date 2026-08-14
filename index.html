@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacific Automation - Cold Email Outreach</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark: #0f1419;
+            --darker: #0a0e13;
+            --accent-blue: #2563eb;
+            --accent-cyan: #06b6d4;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border: #1e293b;
+            --surface: #1a1f2e;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation - Hidden */
+        nav {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            padding: 6rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content h1 .highlight {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(6, 182, 212, 0.1));
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .visual-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .visual-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 4rem;
+            background: var(--surface);
+            margin-top: 4rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--dark);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 6rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            position: relative;
+            padding: 2rem;
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            border-radius: 50%;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .step::after {
+            content: '→';
+            position: absolute;
+            right: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--accent-blue);
+        }
+
+        .step:last-child::after {
+            display: none;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 6rem 4rem;
+            background: var(--surface);
+            margin-top: 4rem;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .price-card {
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--accent-blue);
+            transform: scale(1.05);
+        }
+
+        .price-card:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .price-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .price-tier {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .price-amount span {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .price-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+        }
+
+        .price-features li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .price-features li::before {
+            content: '✓';
+            margin-right: 0.75rem;
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 4rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            border-top: 1px solid var(--border);
+            padding: 3rem 4rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Results Section */
+        .results {
+            padding: 6rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .result-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+
+        .result-company {
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .result-metric {
+            margin-bottom: 1.5rem;
+        }
+
+        .result-value {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        .result-change {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .result-text {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .result-author {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Integrations Section */
+        .integrations {
+            padding: 6rem 4rem;
+            background: var(--surface);
+            margin-top: 4rem;
+        }
+
+        .integrations-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+
+        .integration-item {
+            background: var(--dark);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .integration-item:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-3px);
+        }
+
+        .integration-logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .integration-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 6rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-3px);
+        }
+
+        .stars {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-title {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 4rem;
+            background: var(--surface);
+            margin-top: 4rem;
+        }
+
+        .faq-content {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+        }
+
+        .faq-item:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--accent-blue);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Trust Section */
+        .trust {
+            padding: 6rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .trust-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .trust-content > p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .trust-badges {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid,
+            .pricing-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .step::after {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                flex-direction: column;
+                padding: 1.5rem 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .hero {
+                padding: 2rem;
+            }
+
+            .features-grid,
+            .pricing-cards,
+            .steps-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content,
+        .feature-card,
+        .step {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .feature-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .feature-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .step:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .step:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .step:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Cold Email Outreach That <span class="highlight">Actually Works</span></h1>
+            <p>AI-powered prospecting and personalization that finds the right prospects, writes compelling emails, and tracks every interaction. Close more deals without the cold shoulder.</p>
+            <div class="cta-buttons">
+                <a href="https://cal.com/gurinder/25" class="btn btn-primary">Book a Meeting</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">3.2x</div>
+                    <div class="stat-label">Higher Response Rate</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">10k+</div>
+                    <div class="stat-label">Companies Growing</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$2M+</div>
+                    <div class="stat-label">Generated Revenue</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="visual-content">
+                <div class="visual-icon">📧</div>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Intelligent prospecting <br> & outreach</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2>Powerful Features Built for Sales</h2>
+            <p>Everything you need to run a world-class cold email campaign</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Smart Prospecting</h3>
+                <p>Our AI finds decision-makers that match your ideal customer profile using real-time data and predictive scoring.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✍️</div>
+                <h3>AI Email Writer</h3>
+                <p>Generate personalized, high-converting emails in seconds. Every message is unique and tailored to the prospect.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Advanced Analytics</h3>
+                <p>Track opens, clicks, replies, and conversions. Get actionable insights to optimize your campaigns in real-time.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>Smart Follow-ups</h3>
+                <p>Automate intelligent follow-up sequences based on prospect behavior. Never let a lead go cold.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Deliverability Guaranteed</h3>
+                <p>Enterprise-grade infrastructure ensures your emails land in inboxes, not spam. 99.2% inbox placement rate.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔗</div>
+                <h3>Deep CRM Integration</h3>
+                <p>Seamlessly sync with Salesforce, HubSpot, Pipedrive, and more. Keep your pipeline in perfect sync.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how">
+        <div class="section-header">
+            <h2>Simple 4-Step Process</h2>
+            <p>Get your first campaign running in less than 15 minutes</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Define Your Target</h3>
+                <p>Tell us who you want to reach. Company size, industry, job title—be as specific or broad as you want.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>AI Finds Prospects</h3>
+                <p>Our algorithm finds hundreds or thousands of qualified prospects with verified email addresses and phone numbers.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Generate Emails</h3>
+                <p>AI writes personalized, compelling emails for each prospect. Edit, approve, or regenerate in seconds.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Launch & Track</h3>
+                <p>Send your campaign and watch results flow in. Track opens, clicks, replies, and meetings in real-time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <h2>Pricing Built to Scale</h2>
+            <p>Start free and upgrade as you grow. No credit card required.</p>
+        </div>
+        <div class="pricing-cards">
+            <div class="price-card">
+                <div class="price-tier">Starter</div>
+                <div class="price-amount">Free</div>
+                <div class="price-description">Perfect for testing the platform</div>
+                <ul class="price-features">
+                    <li>100 prospects/month</li>
+                    <li>Basic AI email writing</li>
+                    <li>Manual sending</li>
+                    <li>Email support</li>
+                </ul>
+
+            </div>
+            <div class="price-card featured">
+                <div class="price-tier">Growth</div>
+                <div class="price-amount">Custom</div>
+                <div class="price-description">For growing sales teams</div>
+                <ul class="price-features">
+                    <li>5,000+ prospects/month</li>
+                    <li>Advanced AI personalization</li>
+                    <li>Auto-sending & sequences</li>
+                    <li>Advanced analytics</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="https://cal.com/gurinder/25" class="btn btn-primary" style="width: 100%; text-align: center; display: block;">Book a Meeting</a>
+            </div>
+            <div class="price-card">
+                <div class="price-tier">Enterprise</div>
+                <div class="price-amount">Custom</div>
+                <div class="price-description">For scaling operations</div>
+                <ul class="price-features">
+                    <li>Unlimited prospects</li>
+                    <li>Team collaboration</li>
+                    <li>Custom integrations</li>
+                    <li>Dedicated account manager</li>
+                    <li>24/7 support</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results" id="results">
+        <div class="section-header">
+            <h2>Real Results, Real Growth</h2>
+            <p>See what our customers are achieving with OutreachAI</p>
+        </div>
+        <div class="results-grid">
+            <div class="result-card">
+                <div class="result-company">TechStart Inc.</div>
+                <div class="result-metric">
+                    <span class="result-value">284%</span>
+                    <span class="result-change">increase in qualified leads</span>
+                </div>
+                <p class="result-text">"We went from 5 meetings/week to 20. OutreachAI's personalization cut our sales cycle in half."</p>
+                <div class="result-author">— Marcus Chen, Sales Director</div>
+            </div>
+            <div class="result-card">
+                <div class="result-company">Growth Marketing Co.</div>
+                <div class="result-metric">
+                    <span class="result-value">$480K</span>
+                    <span class="result-change">in new revenue closed</span>
+                </div>
+                <p class="result-text">"The AI email personalization is insane. Our reply rate jumped from 2% to 6.8% immediately."</p>
+                <div class="result-author">— Sarah Mitchell, VP Sales</div>
+            </div>
+            <div class="result-card">
+                <div class="result-company">Venture Studio</div>
+                <div class="result-metric">
+                    <span class="result-value">15 hours</span>
+                    <span class="result-change">saved per week</span>
+                </div>
+                <p class="result-text">"Automation took over manual prospecting. Our team can now focus on closing deals instead of grinding lists."</p>
+                <div class="result-author">— David Lopez, Founder</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations Section -->
+    <section class="integrations" id="integrations">
+        <div class="section-header">
+            <h2>Powerful Integrations</h2>
+            <p>Works seamlessly with your favorite tools</p>
+        </div>
+        <div class="integrations-grid">
+            <div class="integration-item">
+                <div class="integration-logo">📊</div>
+                <div class="integration-name">Salesforce</div>
+            </div>
+            <div class="integration-item">
+                <div class="integration-logo">🎯</div>
+                <div class="integration-name">HubSpot</div>
+            </div>
+            <div class="integration-item">
+                <div class="integration-logo">📈</div>
+                <div class="integration-name">Pipedrive</div>
+            </div>
+            <div class="integration-item">
+                <div class="integration-logo">💼</div>
+                <div class="integration-name">LinkedIn</div>
+            </div>
+            <div class="integration-item">
+                <div class="integration-logo">🤖</div>
+                <div class="integration-name">Zapier</div>
+            </div>
+            <div class="integration-item">
+                <div class="integration-logo">📧</div>
+                <div class="integration-name">Gmail</div>
+            </div>
+            <div class="integration-item">
+                <div class="integration-logo">📬</div>
+                <div class="integration-name">Outlook</div>
+            </div>
+            <div class="integration-item">
+                <div class="integration-logo">🔗</div>
+                <div class="integration-name">Slack</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2>Loved by Sales Leaders</h2>
+            <p>Join hundreds of teams achieving record outreach results</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"The best investment we made for our sales team. The ROI is insane—we've made back the annual cost in the first month alone."</p>
+                <div class="testimonial-author">
+                    <div class="author-name">Emily Rodriguez</div>
+                    <div class="author-title">Head of Sales, B2B SaaS Co.</div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"I was skeptical about AI-generated emails but the quality blew me away. They actually sound like humans and close deals."</p>
+                <div class="testimonial-author">
+                    <div class="author-name">James Patterson</div>
+                    <div class="author-title">Sales Manager, Enterprise Client</div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"The analytics dashboard alone is worth the price. Now I know exactly what's working and what's not in real-time."</p>
+                <div class="testimonial-author">
+                    <div class="author-name">Lisa Wong</div>
+                    <div class="author-title">Revenue Ops, Scaling Startup</div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Customer support is incredible. They helped us set up a custom workflow that increased our response rate by 40%."</p>
+                <div class="testimonial-author">
+                    <div class="author-name">Tom Bradley</div>
+                    <div class="author-title">Founder, Recruitment Firm</div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"We switched from 3 different tools to just OutreachAI. It handles prospecting, writing, sending, and tracking all in one place."</p>
+                <div class="testimonial-author">
+                    <div class="author-name">Michael Zhang</div>
+                    <div class="author-title">VP Growth, PropTech Unicorn</div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"The deliverability is world-class. We went from 15% landing in spam to less than 2%. Game changer for our campaigns."</p>
+                <div class="testimonial-author">
+                    <div class="author-name">Rachel Kim</div>
+                    <div class="author-title">Sales Director, MarTech Company</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about OutreachAI</p>
+        </div>
+        <div class="faq-content">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do you find email addresses?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We use a combination of proprietary data sources, public databases, and verification APIs to find accurate email addresses. Our data is updated daily and we achieve 95%+ accuracy rates.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Will my emails go to spam?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No. We have enterprise-grade infrastructure with dedicated IP warming, SPF/DKIM/DMARC setup, and spam filtering best practices. Our 99.2% inbox placement rate is industry-leading.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I use OutreachAI with my existing CRM?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We integrate with Salesforce, HubSpot, Pipedrive, and 100+ other tools. Your data syncs automatically so your team stays on the same page.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long does it take to see results?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Most customers see their first replies within 24-48 hours of launching a campaign. Significant lift in metrics typically shows within 2-3 weeks as the AI optimizes targeting and messaging.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you offer training and support?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely. All plans include email support, and Growth+ customers get priority support. Enterprise customers get a dedicated account manager and custom training sessions.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What's your refund policy?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer a 30-day money-back guarantee on all plans. If you're not satisfied, we'll refund your payment, no questions asked. We're confident you'll see results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust">
+        <div class="trust-content">
+            <h2>Enterprise-Grade Security & Compliance</h2>
+            <p>Your data is safe with us. We're SOC 2 certified and comply with GDPR, CCPA, and all major regulations.</p>
+            <div class="trust-badges">
+                <div class="badge">🔒 SOC 2 Type II</div>
+                <div class="badge">✅ GDPR Compliant</div>
+                <div class="badge">🛡️ Data Encrypted</div>
+                <div class="badge">📋 CCPA Ready</div>
+                <div class="badge">🔐 2FA Support</div>
+                <div class="badge">📊 Regular Audits</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <h2>Ready to Transform Your Cold Email?</h2>
+        <p>Schedule a personalized demo to see how Pacific Automation can power your outreach.</p>
+        <a href="https://cal.com/gurinder/25" class="btn btn-primary" style="padding: 1.2rem 2.5rem; font-size: 1.1rem;">Book a Meeting</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Roadmap</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">API Docs</a></li>
+                    <li><a href="#">Templates</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Compliance</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Pacific Automation, Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.closest('.faq-item');
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
