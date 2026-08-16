@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pacific Automation — Cold Outreach That Books Meetings</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='white' width='512' height='512'/><circle cx='130' cy='120' r='50' fill='black'/><circle cx='382' cy='120' r='50' fill='black'/><ellipse cx='256' cy='256' rx='180' ry='200' fill='white' stroke='black' stroke-width='20'/><circle cx='160' cy='220' r='70' fill='black'/><circle cx='160' cy='220' r='35' fill='white'/><circle cx='352' cy='220' r='70' fill='black'/><circle cx='352' cy='220' r='35' fill='white'/><circle cx='256' cy='310' r='25' fill='black'/><path d='M220 370 Q256 410 292 370' stroke='black' stroke-width='28' fill='none' stroke-linecap='round'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -567,6 +568,36 @@
   .cta-final p{margin:20px auto 0;color:var(--muted);max-width:440px;font-size:16px;line-height:1.6;}
   .cta-final .btn{margin-top:32px;}
 
+  /* Problem Section */
+  .problem-list{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;}
+  @media(max-width:900px){ .problem-list{grid-template-columns:1fr;} }
+  .problem-item{background:var(--cream-card);padding:28px;border-radius:var(--radius-lg);}
+  .problem-item h4{font-size:18px;margin-bottom:12px;font-family:'Poppins',sans-serif;font-weight:600;}
+  .problem-item p{font-size:14px;color:var(--muted);line-height:1.6;}
+
+  /* How It Works */
+  .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px;}
+  @media(max-width:1024px){ .steps-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:600px){ .steps-grid{grid-template-columns:1fr;} }
+  .step-card{background:#fff;padding:32px;border-radius:var(--radius-lg);border:1px solid var(--line);}
+  .step-num{font-size:28px;font-weight:600;color:var(--orange);font-family:'Poppins',sans-serif;margin-bottom:16px;}
+  .step-card h4{font-size:16px;margin-bottom:12px;font-family:'Poppins',sans-serif;font-weight:600;}
+  .step-card p{font-size:14px;color:var(--muted);line-height:1.6;}
+
+  /* FAQ Section */
+  .faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:48px;}
+  @media(max-width:900px){ .faq-grid{grid-template-columns:1fr;} }
+  .faq-item{background:var(--cream-card);padding:28px;border-radius:var(--radius-lg);}
+  .faq-item h4{font-size:16px;margin-bottom:12px;font-family:'Poppins',sans-serif;font-weight:600;}
+  .faq-item p{font-size:14px;color:var(--muted);line-height:1.6;}
+
+  /* Founder Block */
+  .founder-block{text-align:center;padding:48px 0;}
+  .founder-block h3{font-size:28px;margin-bottom:16px;font-family:'Poppins',sans-serif;font-weight:600;}
+  .founder-block p{font-size:15px;color:var(--muted);margin-bottom:12px;}
+  .founder-block a{color:var(--orange);font-weight:600;text-decoration:none;}
+  .founder-block a:hover{text-decoration:underline;}
+
   /* Footer */
   footer{
     background:var(--dark); color:#fff;
@@ -624,6 +655,29 @@
       <div class="marquee-item"><span>▮▮▮ Pulse</span></div>
       <div class="marquee-item"><span>✦ ZenZap</span></div>
       <div class="marquee-item"><span>Lum ◻</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM SECTION -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Your pipeline shouldn't be this unpredictable</h2>
+    </div>
+    <div class="problem-list">
+      <div class="problem-item">
+        <h4>Referrals aren't a strategy</h4>
+        <p>They're great when they happen. But you can't plan a quarter around hoping the phone rings.</p>
+      </div>
+      <div class="problem-item">
+        <h4>Building it in-house takes longer than expected</h4>
+        <p>Lists, copy, sending infrastructure, follow-up — most teams spend months getting the setup right, and by then the list is stale.</p>
+      </div>
+      <div class="problem-item">
+        <h4>Not enough real conversations</h4>
+        <p>You don't need more leads sitting in a spreadsheet. You need qualified people on your calendar, ready to talk.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -807,6 +861,37 @@
   </div>
 </section>
 
+<!-- HOW IT WORKS -->
+<section style="background:var(--cream-card);">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How it works</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h4>We research and build your list</h4>
+        <p>We identify your ICP, build a verified contact list, and enrich every lead with the data that matters - no guessing, no stale lists.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h4>We write and launch your campaigns</h4>
+        <p>A real strategist writes sequences personalized to each prospect's role and pain points, tests them, and sends from warmed, monitored domains.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h4>We qualify every reply</h4>
+        <p>When a prospect responds interested, we confirm real intent and fit before anything touches your calendar.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h4>Meetings land on your calendar</h4>
+        <p>You show up to calls with people who are already qualified and ready to talk. No back-and-forth, no chasing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIAL -->
 <section>
   <div class="wrap">
@@ -847,7 +932,7 @@
           </div>
         </div>
         <h4>From skeptical to sold</h4>
-        <p>Real conversations with real decision makers — not just opens and clicks.</p>
+        <p>$4.4M in sales pipeline generated</p>
       </div>
       <div class="apart-card">
         <div class="apart-preview">
@@ -859,7 +944,7 @@
           </div>
         </div>
         <h4>Results within two weeks</h4>
-        <p>Consistent, qualified meetings on the calendar — fast.</p>
+        <p>28 meetings booked in the first month</p>
       </div>
       <div class="apart-card">
         <div class="apart-preview">
@@ -871,8 +956,54 @@
           </div>
         </div>
         <h4>26 meetings in 3 weeks</h4>
-        <p>Real pipeline, real fast — no fluff, no filler.</p>
+        <p>26 prospects booked in the first 3 weeks</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Questions we get before booking a call</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>How much does this cost?</h4>
+        <p>[INSERT PRICING ANSWER - not provided yet]</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do I own the campaign assets if I leave?</h4>
+        <p>Absolutely. The lists, copy, and everything we build stays yours.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can you integrate with our CRM?</h4>
+        <p>[fill in]</p>
+      </div>
+      <div class="faq-item">
+        <h4>How many meetings can we get working with you?</h4>
+        <p>Worst case, about 1 in every 1,000 prospects we reach books a meeting - and in practice, most campaigns perform meaningfully better than that.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Is my market big enough for cold email to work?</h4>
+        <p>[fill in]</p>
+      </div>
+      <div class="faq-item">
+        <h4>Where is your team based?</h4>
+        <p>[fill in]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER CREDIBILITY -->
+<section style="background:var(--cream-card);">
+  <div class="wrap">
+    <div class="founder-block">
+      <h3>Built and run by someone who's done this before</h3>
+      <p>Pacific Automation is led by <b>Gurinder Khabra</b>.</p>
+      <p><a href="https://linkedin.com/in/gurinder-khabra" target="_blank" rel="noopener">LinkedIn: linkedin.com/in/gurinder-khabra</a></p>
     </div>
   </div>
 </section>
