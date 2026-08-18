@@ -24,7 +24,7 @@
     --radius-pill: 999px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth; overflow-x:hidden; scrollbar-gutter:stable;}
+  html{scroll-behavior:smooth; overflow-x:hidden; scrollbar-gutter:stable; touch-action:pan-y;}
   body{
     margin:0;
     font-family:'Inter', sans-serif;
@@ -37,6 +37,7 @@
     max-width:100vw;
     left:0;
     right:0;
+    touch-action:pan-y;
   }
   body::before{
     content:'';
