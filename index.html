@@ -228,7 +228,10 @@
   .btn-glow-wrap{position:relative; display:inline-flex;}
   .btn-glow{
     position:absolute;
-    inset:-4px;
+    top:-8px;
+    left:-4px;
+    right:-4px;
+    bottom:-8px;
     z-index:0;
     border-radius:999px;
     background:linear-gradient(
@@ -600,7 +603,7 @@
   .cta-final h2{font-size:clamp(28px,6vw,56px);}
   @media(max-width:480px){ .cta-final h2{font-size:clamp(24px,7vw,40px);} }
   .cta-final p{margin:20px auto 0;color:var(--muted);max-width:440px;font-size:16px;line-height:1.6;}
-  .cta-final .btn{margin-top:32px;}
+  .cta-final .btn{margin-top:48px;}
 
   /* Problem Section */
   .problem-list{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;}
