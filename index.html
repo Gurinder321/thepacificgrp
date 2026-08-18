@@ -24,7 +24,7 @@
     --radius-pill: 999px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth; overflow-x:hidden;}
+  html{scroll-behavior:smooth; overflow-x:hidden; scrollbar-gutter:stable;}
   body{
     margin:0;
     font-family:'Inter', sans-serif;
@@ -35,6 +35,8 @@
     overflow-x:hidden;
     width:100%;
     max-width:100vw;
+    left:0;
+    right:0;
   }
   body::before{
     content:'';
@@ -78,10 +80,11 @@
     margin:0 auto;
     padding:0 32px;
     overflow-x:hidden;
+    width:100%;
   }
   section{padding:100px 0; overflow-x:hidden;}
   @media(max-width:768px){ section{padding:64px 0;} .wrap{padding:0 20px;} }
-  @media(max-width:480px){ section{padding:48px 0;} .wrap{padding:0 16px;} }
+  @media(max-width:480px){ section{padding:48px 0;} .wrap{padding:0 16px; width:100%;} }
 
   /* Buttons */
   .btn{
@@ -129,6 +132,7 @@
     display:flex;align-items:center;justify-content:space-between;
     padding-top:20px;padding-bottom:20px;
   }
+  @media(max-width:480px){ nav.wrap{justify-content:center;} }
   .logo{
     display:flex;align-items:center;gap:8px;
     font-family:'Poppins',sans-serif;font-weight:600;font-size:22px;
